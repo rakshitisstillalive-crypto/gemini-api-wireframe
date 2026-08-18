@@ -1,6 +1,6 @@
 import type { AnalysisReport } from "@/lib/analysis-types";
 
-/** Calls the Gemini-backed /api/analyze endpoint (Vercel serverless / server route). */
+/** Calls the Gemini-backed /api/analyze endpoint (Netlify Function / server route). */
 export async function analyzeImageViaApi(input: {
   imageDataUrl: string;
   note?: string | undefined;
