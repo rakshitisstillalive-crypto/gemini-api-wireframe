@@ -1,0 +1,4 @@
+{
+  "buildCommand": "vite build",
+  "functions": { "api/analyze.ts": { "maxDuration": 60 } }
+}
