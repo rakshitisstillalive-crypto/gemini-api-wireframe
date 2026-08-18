@@ -1,0 +1,11 @@
+[build]
+  command = "vite build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[functions."analyze"]
+  # Gemini vision analysis can take a while
+  included_files = []
