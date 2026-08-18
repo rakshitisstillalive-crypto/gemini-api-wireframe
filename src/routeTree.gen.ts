@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ManualRouteImport } from './routes/manual'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as ApiAnalyzeRouteImport } from './routes/api/analyze'
 import { Route as CompanyAboutRouteImport } from './routes/company.about'
 import { Route as CompanyCareersRouteImport } from './routes/company.careers'
 import { Route as CompanyPressRouteImport } from './routes/company.press'
@@ -56,6 +57,11 @@ const ManualRoute = ManualRouteImport.update({
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAnalyzeRoute = ApiAnalyzeRouteImport.update({
+  id: '/api/analyze',
+  path: '/api/analyze',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompanyAboutRoute = CompanyAboutRouteImport.update({
@@ -126,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/manual': typeof ManualRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/api/analyze': typeof ApiAnalyzeRoute
   '/company/about': typeof CompanyAboutRoute
   '/company/careers': typeof CompanyCareersRoute
   '/company/press': typeof CompanyPressRoute
@@ -146,6 +153,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/manual': typeof ManualRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/api/analyze': typeof ApiAnalyzeRoute
   '/company/about': typeof CompanyAboutRoute
   '/company/careers': typeof CompanyCareersRoute
   '/company/press': typeof CompanyPressRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/manual': typeof ManualRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/api/analyze': typeof ApiAnalyzeRoute
   '/company/about': typeof CompanyAboutRoute
   '/company/careers': typeof CompanyCareersRoute
   '/company/press': typeof CompanyPressRoute
@@ -189,6 +198,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/manual'
     | '/reset-password'
+    | '/api/analyze'
     | '/company/about'
     | '/company/careers'
     | '/company/press'
@@ -209,6 +219,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/manual'
     | '/reset-password'
+    | '/api/analyze'
     | '/company/about'
     | '/company/careers'
     | '/company/press'
@@ -229,6 +240,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/manual'
     | '/reset-password'
+    | '/api/analyze'
     | '/company/about'
     | '/company/careers'
     | '/company/press'
@@ -250,6 +262,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   ManualRoute: typeof ManualRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
+  ApiAnalyzeRoute: typeof ApiAnalyzeRoute
   CompanyAboutRoute: typeof CompanyAboutRoute
   CompanyCareersRoute: typeof CompanyCareersRoute
   CompanyPressRoute: typeof CompanyPressRoute
@@ -306,6 +319,13 @@ declare module '@tanstack/react-router' {
       path: '/reset-password'
       fullPath: '/reset-password'
       preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/analyze': {
+      id: '/api/analyze'
+      path: '/api/analyze'
+      fullPath: '/api/analyze'
+      preLoaderRoute: typeof ApiAnalyzeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/company/about': {
@@ -402,6 +422,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   ManualRoute: ManualRoute,
   ResetPasswordRoute: ResetPasswordRoute,
+  ApiAnalyzeRoute: ApiAnalyzeRoute,
   CompanyAboutRoute: CompanyAboutRoute,
   CompanyCareersRoute: CompanyCareersRoute,
   CompanyPressRoute: CompanyPressRoute,

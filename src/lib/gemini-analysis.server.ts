@@ -3,7 +3,7 @@ import { SYSTEM_PROMPT } from "@/lib/analysis-prompt";
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 
-export type AnalyzeRequest = { imageDataUrl: string; note?: string };
+export type AnalyzeRequest = { imageDataUrl: string; note?: string | undefined };
 
 export class AnalysisError extends Error {
   status: number;
