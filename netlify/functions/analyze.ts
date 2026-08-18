@@ -1,8 +1,8 @@
-// Vercel serverless function: POST /api/analyze
+// Netlify Function (v2): POST /api/analyze
 // Body: { imageDataUrl: string, note?: string } -> AnalysisReport JSON
-import { analyzeWithGemini, AnalysisError } from "../src/lib/gemini-analysis.server";
+import type { Config } from "@netlify/functions";
 
-export const config = { maxDuration: 60 };
+import { analyzeWithGemini, AnalysisError } from "../../src/lib/gemini-analysis.server";
 
 export default async function handler(req: Request): Promise<Response> {
   if (req.method === "OPTIONS") {
@@ -32,3 +32,7 @@ export default async function handler(req: Request): Promise<Response> {
     return Response.json({ error: message }, { status });
   }
 }
+
+export const config: Config = {
+  path: "/api/analyze",
+};
