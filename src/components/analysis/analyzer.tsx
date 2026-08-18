@@ -309,8 +309,9 @@ export function Analyzer() {
     setLoading(true);
     setReport(null);
     try {
-      const result = await analyzeImage({
-        data: { imageDataUrl, note: note.trim() || undefined },
+      const result = await analyzeImageViaApi({
+        imageDataUrl,
+        note: note.trim() || undefined,
       });
       setReport(result);
       toast.success("Analysis complete.");
