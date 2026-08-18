@@ -24,7 +24,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useAuth } from "@/hooks/useAuth";
 import { saveAnalysis } from "@/lib/analyses";
 import type { AnalysisReport } from "@/lib/analysis-types";
-import { analyzeImage } from "@/lib/analysis.functions";
+import { analyzeImageViaApi } from "@/lib/analysis-api";
 import { downloadReportPdf } from "@/lib/report-pdf";
 
 const MAX_BYTES = 6 * 1024 * 1024;
