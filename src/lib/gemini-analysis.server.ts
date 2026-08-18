@@ -1,7 +1,7 @@
 import type { AnalysisReport } from "@/lib/analysis-types";
 import { SYSTEM_PROMPT } from "@/lib/analysis-prompt";
 
-const GEMINI_MODEL = "gemini-3.6-flash";
+const GEMINI_MODEL = "gemini-1.5-flash";
 
 export type AnalyzeRequest = { imageDataUrl: string; note?: string | undefined };
 
