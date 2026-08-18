@@ -16,7 +16,7 @@ export class AnalysisError extends Error {
 function parseDataUrl(dataUrl: string): { mimeType: string; data: string } {
   const match = /^data:([^;,]+);base64,(.+)$/i.exec(dataUrl.trim());
   if (!match) throw new AnalysisError("Please upload a valid image file.", 400);
-  return { mimeType: match[1], data: match[2] };
+  return { mimeType: match[1] ?? "image/jpeg", data: match[2] ?? "" };
 }
 
 function extractReport(raw: string): AnalysisReport {
